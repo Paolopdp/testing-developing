@@ -1,0 +1,46 @@
+<!doctype html>
+<h1>
+Gioco
+</h1>
+<ul>
+    1 Durante l’inizializzazione, la applicazione sceglie una sequenza binaria
+    casuale di lunghezza <br>
+    2 La pagina ha due bottoni, uno bianco (associato a
+    True) e uno nero (associato a False); l’utente deve
+    indovinare la sequenza casuale premendo i bottoni avendo a
+    disposizione 10 mosse.<br>
+    3 Ad ogni errore, l’applicazione ri-inizializza la partita modificando la
+    sequenza.<br>
+    4 Se l’utente indovina la sequenza entro 10 mosse, vince, altrimenti vince
+    l’applicazione.<br>
+    {% if errori != 0 %}
+    Numero errori = {{errori}}
+    {% endif %}
+</ul>
+{% if (errori!=10 and  valori!='') %}
+<form action="" method="post">
+<input type="submit" name="submit" value="False" style="background-color:black;width:300;height:50;color:white">
+</form>
+<form action="" method="post">
+<input type="submit" name="submit" value="True" style="background-color:white;width:300;height:50">
+</form>
+
+    {% if giusto =='false' %}
+        Sbagliato 
+    {% endif %}
+    {% if giusto=='true' %}
+        Giusto
+    {% endif %}
+{% endif %}
+{% if errori==10 or valori=='' %}
+{% if errori==10 %}
+    Fine tentativi, hai perso sequenza iniziale= {{startseq}}
+{% elif valori=='' %}
+        <br>
+        hai vinto, sequenza iniziale= {{startseq}}
+{% endif %}
+<a href="http://localhost:5000">
+<button type="button">Ricomincia?</button>
+</a>
+<a
+{% endif %}                            
